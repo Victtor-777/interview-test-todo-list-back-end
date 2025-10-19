@@ -1,4 +1,5 @@
-import { User, UserRole } from "@domain/entities/user";
+import { User } from "@domain/entities/user";
+import { UserRole } from "@prisma/client";
 
 export interface CreateUserParams {
   name: string;

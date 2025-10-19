@@ -24,10 +24,4 @@ export class PrismaUserRepository implements UserRepository {
       where: { email }
     });
   }
-
-  async findByCpf(cpf: string): Promise<User | null> {
-    return this.prisma.user.findUnique({
-      where: { cpf }
-    });
-  }
 }
