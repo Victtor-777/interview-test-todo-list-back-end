@@ -5,8 +5,7 @@ import { ExceptionsServiceStub } from "@test/stubs/adapters/exceptions";
 import { ExceptionsAdapter } from "@domain/adapters/exceptions";
 import { CryptographyAdapter } from "@domain/adapters/cryptography";
 import { CryptographyServiceStub } from "@test/stubs/adapters/cryptography";
-import { User } from "@domain/entities/user";
-import { UserRole } from "@prisma/client";
+import { User, UserRole } from "@domain/entities/user";
 
 describe("SignUpUseCase", () => {
   let sut: SignUpUseCase;

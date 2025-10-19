@@ -1,6 +1,6 @@
+import { UserRole } from "@domain/entities/user";
 import { CreateUserParams } from "@domain/repositories/user";
 import { ApiProperty } from "@nestjs/swagger";
-import { UserRole } from "@prisma/client";
 import {
   IsEmail,
   IsEnum,

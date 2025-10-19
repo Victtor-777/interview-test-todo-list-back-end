@@ -6,7 +6,7 @@ import { TokenServiceStub } from "@test/stubs/adapters/token";
 import { CryptographyAdapter } from "@domain/adapters/cryptography";
 import { ExceptionsAdapter } from "@domain/adapters/exceptions";
 import { TokenAdapter } from "@domain/adapters/token";
-import { User } from "@domain/entities/user";
+import { User, UserRole } from "@domain/entities/user";
 import { UserRepository } from "@domain/repositories/user";
 
 describe("LoginUseCase", () => {
@@ -33,9 +33,8 @@ describe("LoginUseCase", () => {
     id: "1",
     name: "Test User",
     email: "test@example.com",
-    cpf: "12345678901",
     password: "hashed-Password123",
-    contact: "123456789",
+    role: UserRole.USER,
     createdAt: new Date(),
     updatedAt: new Date()
   };

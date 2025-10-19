@@ -1,9 +1,8 @@
 import { CryptographyAdapter } from "@domain/adapters/cryptography";
 import { ExceptionsAdapter } from "@domain/adapters/exceptions";
-import { User } from "@domain/entities/user";
+import { User, UserRole } from "@domain/entities/user";
 import { CreateUserParams, UserRepository } from "@domain/repositories/user";
 import { Injectable } from "@nestjs/common";
-import { UserRole } from "@prisma/client";
 
 @Injectable()
 export class SignUpUseCase {
