@@ -8,7 +8,7 @@ import { UserMapperUseCase } from "@use-cases/mapper";
 export class PrismaUserRepository implements UserRepository {
   constructor(
     private readonly prisma: Prisma,
-    private readonly userMapper: UserMapperUseCase // 👈 Injeta mapper
+    private readonly userMapper: UserMapperUseCase
   ) {}
 
   async create(params: CreateUserParams): Promise<User> {
