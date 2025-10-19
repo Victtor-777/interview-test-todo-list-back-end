@@ -1,0 +1,16 @@
+services:
+  postgres:
+    profiles: ["my_projects"]
+    image: postgres:13
+    container_name: todo-list
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+    name: todo-list-postgres-volume
