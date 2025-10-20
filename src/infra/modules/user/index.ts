@@ -7,6 +7,7 @@ import { ExceptionsModule } from "../exceptions";
 import { LoginUseCase } from "@use-cases/user/login";
 import { TokenModule } from "../token";
 import { AuthenticationModule } from "../authentication";
+import { GetCurrentUserUseCase } from "@use-cases/user/current-user";
 
 @Module({
   imports: [
@@ -17,6 +18,6 @@ import { AuthenticationModule } from "../authentication";
     AuthenticationModule
   ],
   controllers: [AuthController],
-  providers: [SignUpUseCase, LoginUseCase]
+  providers: [SignUpUseCase, LoginUseCase, GetCurrentUserUseCase]
 })
 export class UserModule {}
