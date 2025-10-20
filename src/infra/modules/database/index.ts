@@ -2,7 +2,7 @@ import { Module } from "@nestjs/common";
 import { Prisma } from "@infra/config/prisma";
 import { PrismaUserRepository } from "@infra/repositories/prisma/user";
 import { UserRepository } from "@domain/repositories/user";
-import { UserMapperUseCase } from "@use-cases/mapper";
+import { UserMapperUseCase } from "@use-cases/mapper/user";
 
 @Module({
   providers: [

@@ -2,7 +2,7 @@ import { User } from "@domain/entities/user";
 import { CreateUserParams, UserRepository } from "@domain/repositories/user";
 import { Prisma } from "@infra/config/prisma";
 import { Injectable } from "@nestjs/common";
-import { UserMapperUseCase } from "@use-cases/mapper";
+import { UserMapperUseCase } from "@use-cases/mapper/user";
 
 @Injectable()
 export class PrismaUserRepository implements UserRepository {
