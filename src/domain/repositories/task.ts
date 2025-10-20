@@ -14,7 +14,7 @@ export interface UpdateTaskParams {
 }
 
 export abstract class TaskRepository {
-  abstract create(task: CreateTaskParams): Promise<Task>;
+  abstract create(params: CreateTaskParams): Promise<Task>;
   abstract findById(id: string): Promise<Task | null>;
   abstract findAll(userId?: string): Promise<Task[]>;
   abstract update(id: string, params: UpdateTaskParams): Promise<Task>;

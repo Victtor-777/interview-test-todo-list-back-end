@@ -6,9 +6,16 @@ import { CryptographyModule } from "../cryptography";
 import { ExceptionsModule } from "../exceptions";
 import { LoginUseCase } from "@use-cases/user/login";
 import { TokenModule } from "../token";
+import { AuthenticationModule } from "../authentication";
 
 @Module({
-  imports: [DatabaseModule, CryptographyModule, ExceptionsModule, TokenModule],
+  imports: [
+    DatabaseModule,
+    CryptographyModule,
+    ExceptionsModule,
+    TokenModule,
+    AuthenticationModule
+  ],
   controllers: [AuthController],
   providers: [SignUpUseCase, LoginUseCase]
 })
