@@ -45,7 +45,7 @@ export class TaskController {
   async createTask(
     @Body() body: CreateTaskDto,
     @Req() req: AuthenticatedRequest
-  ): Promise<Task> {
+  ): Promise<Task | void> {
     const userId = req.user.id;
     return this.createTaskUseCase.execute({ ...body, userId });
   }
@@ -57,7 +57,7 @@ export class TaskController {
     @Param("id", ParseUUIDPipe) id: string,
     @Body() body: UpdateTaskDto,
     @Req() req: AuthenticatedRequest
-  ): Promise<Task> {
+  ): Promise<Task | void> {
     return this.updateTaskUseCase.execute(id, body, req.user);
   }
 
@@ -74,7 +74,7 @@ export class TaskController {
   async findTaskById(
     @Param("id", ParseUUIDPipe) id: string,
     @Req() req: AuthenticatedRequest
-  ): Promise<Task> {
+  ): Promise<Task | void> {
     return this.findTaskByIdUseCase.execute(id, req.user);
   }
 

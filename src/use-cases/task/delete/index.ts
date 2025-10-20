@@ -14,11 +14,11 @@ export class DeleteTaskUseCase {
     const task = await this.taskRepository.findById(id);
 
     if (!task) {
-      this.exceptionsService.notFound({ message: "Task not found" });
+      return this.exceptionsService.notFound({ message: "Task not found" });
     }
 
     if (user.role !== UserRole.ADMIN && task.userId !== user.id) {
-      this.exceptionsService.forbidden({
+      return this.exceptionsService.forbidden({
         message: "You do not have permission to delete this task"
       });
     }

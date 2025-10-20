@@ -11,17 +11,17 @@ export class FindTaskByIdUseCase {
     private readonly exceptionService: ExceptionsAdapter
   ) {}
 
-  async execute(id: string, user: User): Promise<Task> {
+  async execute(id: string, user: User): Promise<Task | void> {
     const task = await this.taskRepository.findById(id);
 
     if (!task) {
-      this.exceptionService.notFound({
+      return this.exceptionService.notFound({
         message: "Task not found"
       });
     }
 
     if (user.role !== UserRole.ADMIN && task.userId !== user.id) {
-      this.exceptionService.forbidden({
+      return this.exceptionService.forbidden({
         message: "You do not have permission to access this task"
       });
     }

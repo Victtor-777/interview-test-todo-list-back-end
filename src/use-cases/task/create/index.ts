@@ -10,19 +10,19 @@ export class CreateTaskUseCase {
     private readonly exceptionService: ExceptionsAdapter
   ) {}
 
-  async execute(params: CreateTaskParams): Promise<Task> {
+  async execute(params: CreateTaskParams): Promise<Task | void> {
     if (!params.title || params.title.trim() === "") {
-      this.exceptionService.badRequest({
+      return this.exceptionService.badRequest({
         message: "Title is required"
       });
     }
 
     if (!params.userId || params.userId.trim() === "") {
-      this.exceptionService.badRequest({
+      return this.exceptionService.badRequest({
         message: "User ID is required"
       });
     }
 
-    return this.taskRepository.create(params);
+    return await this.taskRepository.create(params);
   }
 }

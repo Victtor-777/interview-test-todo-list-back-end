@@ -15,15 +15,15 @@ export class UpdateTaskUseCase {
     id: string,
     params: UpdateTaskParams,
     user: User
-  ): Promise<Task> {
+  ): Promise<Task | void> {
     const task = await this.taskRepository.findById(id);
 
     if (!task) {
-      this.exceptionsService.notFound({ message: "Task not found" });
+      return this.exceptionsService.notFound({ message: "Task not found" });
     }
 
     if (user.role !== UserRole.ADMIN && task.userId !== user.id) {
-      this.exceptionsService.forbidden({
+      return this.exceptionsService.forbidden({
         message: "You can only update your own tasks"
       });
     }
